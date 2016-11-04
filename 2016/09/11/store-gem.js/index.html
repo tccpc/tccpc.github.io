@@ -1,0 +1,727 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js框架," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="TCCPC'S BLOG" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="store-gem.js本地存储localstorage/sessionstorage的封装,cookie完美解决方案github地址：https://github.com/tccpc/store-gem.js
+安装bower1$ bower install store-gem.js
+npm1$ npm install store-gem.js
+本地存储APIs123456789101112131">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地存储localstorage/sessionstorage的封装,cookie完美解决方案">
+<meta property="og:url" content="http://tccpc.xyz/2016/09/11/store-gem.js/index.html">
+<meta property="og:site_name" content="TCCPC'S BLOG">
+<meta property="og:description" content="store-gem.js本地存储localstorage/sessionstorage的封装,cookie完美解决方案github地址：https://github.com/tccpc/store-gem.js
+安装bower1$ bower install store-gem.js
+npm1$ npm install store-gem.js
+本地存储APIs123456789101112131">
+<meta property="og:updated_time" content="2016-09-24T16:30:27.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本地存储localstorage/sessionstorage的封装,cookie完美解决方案">
+<meta name="twitter:description" content="store-gem.js本地存储localstorage/sessionstorage的封装,cookie完美解决方案github地址：https://github.com/tccpc/store-gem.js
+安装bower1$ bower install store-gem.js
+npm1$ npm install store-gem.js
+本地存储APIs123456789101112131">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://tccpc.xyz/2016/09/11/store-gem.js/"/>
+
+  <title> 本地存储localstorage/sessionstorage的封装,cookie完美解决方案 | TCCPC'S BLOG </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">TCCPC'S BLOG</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端学习分享</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                本地存储localstorage/sessionstorage的封装,cookie完美解决方案
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-11T22:28:29+08:00" content="2016-09-11">
+              2016-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="store-gem-js"><a href="#store-gem-js" class="headerlink" title="store-gem.js"></a>store-gem.js</h1><p>本地存储localstorage/sessionstorage的封装,cookie完美解决方案<br><a href="https://github.com/tccpc/store-gem.js" title="github地址" target="_blank" rel="external">github地址</a>：<a href="https://github.com/tccpc/store-gem.js" target="_blank" rel="external">https://github.com/tccpc/store-gem.js</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bower install store-gem.js</div></pre></td></tr></table></figure>
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install store-gem.js</div></pre></td></tr></table></figure>
+<h2 id="本地存储APIs"><a href="#本地存储APIs" class="headerlink" title="本地存储APIs"></a>本地存储APIs</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myStore = <span class="keyword">new</span> store()			<span class="comment">//可选参数：sessionStorage和localStorage 默认localStorage</span></div><div class="line">myStore.set(key, data,timeouts);	<span class="comment">//单个存储字符串数据 timeouts 为过期时间</span></div><div class="line">myStore.set(&#123;<span class="attr">key</span>: data, <span class="attr">key2</span>: data2&#125;,timeouts);	<span class="comment">//批量存储多个字符串数据</span></div><div class="line">myStore.get(key);               	<span class="comment">//获取key的字符串数据</span></div><div class="line">myStore.get();                  	<span class="comment">//获取所有key/data</span></div><div class="line">myStore.get(key1,key2,key3);		<span class="comment">//获取对应&#123;key: data, key2: data2,key3:data3&#125;对象</span></div><div class="line">myStore.has(key)					<span class="comment">//判断key是否存在</span></div><div class="line">myStore.keys()						<span class="comment">//返回所有key的数组</span></div><div class="line">myStore.remove(key)					<span class="comment">//删除key/data</span></div><div class="line">myStore.remove(key1，key2)			<span class="comment">//删除key1/data1,key2/data2</span></div><div class="line">myStore.clear()						<span class="comment">//清空所有key/data</span></div><div class="line">myStore.clearExpires()				<span class="comment">//删除缓存中所有超时值</span></div><div class="line">myStore.setTimeout(key,timeouts)	<span class="comment">//根据key为已存在的（未超时的）缓存值以当前时间为基准设置新的超时时间。</span></div><div class="line">myStore.add(key, data, timeouts)	<span class="comment">//根据key做插入操作，如果key对应的值不存在或者已超时则插入该值，反之什么都不做。</span></div><div class="line">myStore.replace(key,data,timeouts)	<span class="comment">//根据key做插入操作，如果key对应的值存在并且未超时则插入该值，反之什么都不做</span></div><div class="line">myStore.each(callback);         	<span class="comment">//循环遍历，返回false结束遍历</span></div><div class="line">myStore.length()					<span class="comment">//返回缓存中key的数量</span></div></pre></td></tr></table></figure>
+<p>###Constructor<br>实例化store<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myStore = <span class="keyword">new</span> store(<span class="string">'localStorage'</span><span class="comment">// [可选] 'localStorage', 'sessionStorage', 默认 'localStorage')</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>向缓存中插入一条或多条数据 </p>
+<p>插入单条<code>myStore.set(key, data,timeouts); //key [必填]必须要为String类型 data [必填] 支持所有类型 timeouts [选填] 支持Number和Date类型 Number类型单位为秒数 默认为 new Date(&#39;Fri Dec 31 9999 00:00:00 GMT+0800&#39;)</code><br>插入多条<code>myStore.set({key: data, key2: data2},timeouts);//过期时间相同</code>  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">myStore.set(<span class="string">'a0'</span>,<span class="string">'name1'</span>,<span class="number">200</span>)   					<span class="comment">//a0 ⇒  name1 过期时间200秒后</span></div><div class="line">myStore.set(<span class="string">'a1'</span>,<span class="string">'name2'</span>)     						<span class="comment">//a1 ⇒  name2 过期时间无限大</span></div><div class="line">myStore.set(&#123;<span class="string">'a4'</span>:<span class="string">'string'</span>,<span class="attr">a5</span>:[<span class="string">'array1'</span>,<span class="number">2</span>]&#125;,<span class="number">50</span>);	</div><div class="line"><span class="comment">//存储两条字符串数据 </span></div><div class="line"><span class="comment">//	a4⇒'string' 过期时间50秒后</span></div><div class="line"><span class="comment">//  a5⇒['array1',2]过期时间50秒后</span></div></pre></td></tr></table></figure>
+<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><p>获取key的字符串数据  </p>
+<p><code>myStore.get()</code>无参数为获取全部key/data 返回Object对象<br><code>myStore.get(key)</code>返回对应data<br><code>myStore.get(key1,key2)</code>返回Object {key1: data1, key2: data2}   </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(myStore.get());    		<span class="comment">//⇒Object &#123;a0: 'name1', a1: 'name2', a4: 'string', a5: ['array1',2]&#125;</span></div><div class="line"><span class="built_in">console</span>.log(myStore.get(<span class="string">'a0'</span>));    	<span class="comment">//⇒name1</span></div><div class="line"><span class="built_in">console</span>.log(myStore.get(<span class="string">'a0'</span>,<span class="string">'a3'</span>));<span class="comment">//⇒Object &#123;a0: 'name1', a3: 3&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3><p>清空所有key/data<br><code>myStore.clear()</code>  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myStore.clear()</div></pre></td></tr></table></figure>
+<h3 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h3><p>删除key包括key的字符串数据<br><code>myStore.remove(key)</code><br><code>myStore.remove(key1,key2)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myStore.remove(<span class="string">"a0"</span>); <span class="comment">//删除a0</span></div><div class="line">myStore.remove(<span class="string">"a1"</span>,<span class="string">"a2"</span>); <span class="comment">//删除a1,a2</span></div></pre></td></tr></table></figure>
+<h3 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h3><p>返回所有key的数组<br><code>myStore.keys()</code>  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myStore.keys() <span class="comment">//⇒["a3", "a4", "a5"]</span></div></pre></td></tr></table></figure>
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><p>搜索所有key中包含string的key/data 返回object对象</p>
+<p>搜索方法 <code>myStore.search(string)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myStore.search(<span class="string">'key'</span>) <span class="comment">//⇒ &#123;"key":"keytest","key1":&#123;"a":1&#125;,"keyaev":"fff"&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="has"><a href="#has" class="headerlink" title="has"></a>has</h3><p>判断是否存在返回true/false<br><code>myStore.has(key)</code>  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myStore.has(<span class="string">"a3"</span>); <span class="comment">//⇒true</span></div></pre></td></tr></table></figure>
+<h3 id="each"><a href="#each" class="headerlink" title="each"></a>each</h3><p>循环遍历，返回false结束遍历</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">myStore.each(<span class="function"><span class="keyword">function</span>(<span class="params">key,data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(key,data)</div><div class="line">    <span class="keyword">if</span> (key== <span class="number">3</span>) <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="clearExpires"><a href="#clearExpires" class="headerlink" title="clearExpires"></a>clearExpires</h3><p>删除缓存中所有通过WebStorageCache存储的超时值</p>
+<p><code>myStore.clearExpires();</code></p>
+<p>###setTimeout<br>根据key为已存在的（未超时的）缓存值以当前时间为基准设置新的超时时间。设置成功返回true失败返回false。</p>
+<p><code>myStore.setTimeout(key,timeouts);</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myStore.setTimeout(<span class="string">"a0"</span>,<span class="number">500</span>)<span class="comment">//设置过期时间为500秒后</span></div></pre></td></tr></table></figure>
+<p>###add<br>根据key做插入操作，如果key对应的值不存在或者已超时则插入该值，反之什么都不做。插入成功返回true失败返回false。</p>
+<p><code>myStore.add();</code></p>
+<p>###replace<br>根据key做替换操作，如果key对应的值存在并且未超时则替换该值，反之什么都不做。替换成功返回true失败返回false。</p>
+<p><code>myStore.replace();</code></p>
+<h2 id="链式书写"><a href="#链式书写" class="headerlink" title="链式书写"></a>链式书写</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myStore.remove(<span class="string">'a0'</span>,<span class="string">'a2'</span>).clear().set(<span class="string">'a0'</span>,<span class="string">'name1'</span>,<span class="number">200</span>).set(<span class="string">'a1'</span>,<span class="string">'name2'</span>).get(<span class="string">'a1'</span>)</div></pre></td></tr></table></figure>
+<h2 id="兼容"><a href="#兼容" class="headerlink" title="兼容"></a>兼容</h2><p>来源：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage" target="_blank" rel="external">sessionStorage</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="external">localStorage</a></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Chrome</th>
+<th>Firefox (Gecko)</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari (WebKit)</th>
+<th>iPhone(IOS)</th>
+<th>Android</th>
+<th>Opera Mobile</th>
+<th>Window Phone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localStorage</td>
+<td>4+</td>
+<td>3.5+</td>
+<td>8+</td>
+<td>10.50+</td>
+<td>4+</td>
+<td>3.2+</td>
+<td>2.1+</td>
+<td>11+</td>
+<td>8+</td>
+</tr>
+<tr>
+<td>sessionStorage</td>
+<td>5+</td>
+<td>2+</td>
+<td>8+</td>
+<td>10.50+</td>
+<td>4+</td>
+<td>3.2+</td>
+<td>2.1+</td>
+<td>11+</td>
+<td>8+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="本地存储大小"><a href="#本地存储大小" class="headerlink" title="本地存储大小"></a>本地存储大小</h2><p><code>JSON.stringify(localStorage).length</code> 当前占用多大容量  </p>
+<p><a href="https://arty.name/localstorage.html" target="_blank" rel="external">检测localstore容量上限</a>  </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js框架/" rel="tag">#js框架</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/26/js作用域链/" rel="next" title="js作用域链">
+                <i class="fa fa-chevron-left"></i> js作用域链
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/11/planeWars/" rel="prev" title="planeWars 原生js写的飞机大战游戏">
+                planeWars 原生js写的飞机大战游戏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/cpc.png"
+               alt="崔鹏程" />
+          <p class="site-author-name" itemprop="name">崔鹏程</p>
+          <p class="site-description motion-element" itemprop="description">满招损，谦受益</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.github.com/tccpc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2285434181" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:648593412@qq.com" target="_blank" title="mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/cui-peng-cheng-53-20" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-comment"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#store-gem-js"><span class="nav-number">1.</span> <span class="nav-text">store-gem.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bower"><span class="nav-number">1.1.1.</span> <span class="nav-text">bower</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm"><span class="nav-number">1.1.2.</span> <span class="nav-text">npm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地存储APIs"><span class="nav-number">1.2.</span> <span class="nav-text">本地存储APIs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">1.2.1.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get"><span class="nav-number">1.2.2.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear"><span class="nav-number">1.2.3.</span> <span class="nav-text">clear</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove"><span class="nav-number">1.2.4.</span> <span class="nav-text">remove</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keys"><span class="nav-number">1.2.5.</span> <span class="nav-text">keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">1.2.6.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#has"><span class="nav-number">1.2.7.</span> <span class="nav-text">has</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">1.2.8.</span> <span class="nav-text">each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clearExpires"><span class="nav-number">1.2.9.</span> <span class="nav-text">clearExpires</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式书写"><span class="nav-number">1.3.</span> <span class="nav-text">链式书写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容"><span class="nav-number">1.4.</span> <span class="nav-text">兼容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地存储大小"><span class="nav-number">1.5.</span> <span class="nav-text">本地存储大小</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">崔鹏程</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="#">Tccpc</a>
+</div>
+
+<div class="theme-info">
+  人生贵知心，定交无暮早 -
+  <a class="theme-link" href="#">
+    648593412
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

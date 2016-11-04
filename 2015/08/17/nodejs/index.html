@@ -1,0 +1,690 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nodejs," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="TCCPC'S BLOG" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一，开篇分析
+刚学nodejs这三个模块在搭web服务时经常用到，而且它们之间存在着依赖关系，所以依次介绍并且实例分析。废话不多说了，请看下面文档：（1），”Url模块”
+先来个小栗子（是不很有喜感）：
+1234567891011121314151617181920var url = require(&apos;url&apos;);var queryUrl = &quot;http://localhost:8888/bb?n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs ------ Url，QueryString，Path">
+<meta property="og:url" content="http://tccpc.xyz/2015/08/17/nodejs/index.html">
+<meta property="og:site_name" content="TCCPC'S BLOG">
+<meta property="og:description" content="一，开篇分析
+刚学nodejs这三个模块在搭web服务时经常用到，而且它们之间存在着依赖关系，所以依次介绍并且实例分析。废话不多说了，请看下面文档：（1），”Url模块”
+先来个小栗子（是不很有喜感）：
+1234567891011121314151617181920var url = require(&apos;url&apos;);var queryUrl = &quot;http://localhost:8888/bb?n">
+<meta property="og:updated_time" content="2016-08-31T15:16:04.789Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nodejs ------ Url，QueryString，Path">
+<meta name="twitter:description" content="一，开篇分析
+刚学nodejs这三个模块在搭web服务时经常用到，而且它们之间存在着依赖关系，所以依次介绍并且实例分析。废话不多说了，请看下面文档：（1），”Url模块”
+先来个小栗子（是不很有喜感）：
+1234567891011121314151617181920var url = require(&apos;url&apos;);var queryUrl = &quot;http://localhost:8888/bb?n">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://tccpc.xyz/2015/08/17/nodejs/"/>
+
+  <title> Nodejs ------ Url，QueryString，Path | TCCPC'S BLOG </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">TCCPC'S BLOG</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端学习分享</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Nodejs ------ Url，QueryString，Path
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-08-17T22:28:29+08:00" content="2015-08-17">
+              2015-08-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一，开篇分析</p>
+<p>刚学<code>nodejs</code>这三个模块在搭web服务时经常用到，而且它们之间存在着依赖关系，所以依次介绍并且实例分析。废话不多说了，请看下面文档：<br>（1），”Url模块”</p>
+<p>先来个小栗子（是不很有喜感）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="keyword">var</span> queryUrl = <span class="string">"http://localhost:8888/bb?name=bigbear&amp;memo=helloworld"</span> ;</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> url.parse(queryUrl)) ;</div><div class="line"><span class="built_in">console</span>.log(url.parse(queryUrl)) ;</div><div class="line"> </div><div class="line"> object <span class="comment">// typeof </span></div><div class="line">  &#123; </div><div class="line">     <span class="attr">protocol</span>: <span class="string">'http:'</span>,</div><div class="line">     <span class="attr">slashes</span>: <span class="literal">true</span>,</div><div class="line">     <span class="attr">auth</span>: <span class="literal">null</span>,</div><div class="line">     <span class="attr">host</span>: <span class="string">'localhost:8888'</span>,</div><div class="line">     <span class="attr">port</span>: <span class="string">'8888'</span>,</div><div class="line">     <span class="attr">hostname</span>: <span class="string">'localhost'</span>,</div><div class="line">     <span class="attr">hash</span>: <span class="literal">null</span>,</div><div class="line">     <span class="attr">search</span>: <span class="string">'?name=bigbear&amp;memo=helloworld'</span>,</div><div class="line">     <span class="attr">query</span>: <span class="string">'name=bigbear&amp;memo=helloworld'</span>,</div><div class="line">     <span class="attr">pathname</span>: <span class="string">'/bb'</span>,</div><div class="line">     <span class="attr">path</span>: <span class="string">'/bb?name=bigbear&amp;memo=helloworld'</span>,</div><div class="line">     <span class="attr">href</span>: <span class="string">'http://localhost:8888/bb?name=bigbear&amp;memo=helloworld'</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>　加以说明如下：　　</p>
+<p>　　<code>protocol:</code>请求协议</p>
+<p>　　<code>host:</code>URL主机名已全部转换成小写, 包括端口信息</p>
+<p>　　<code>auth:</code>URL中身份验证信息部分</p>
+<p>　　<code>hostname:</code>主机的主机名部分, 已转换成小写</p>
+<p>　　<code>port:</code>主机的端口号部分</p>
+<p>　　<code>pathname:</code>URL的路径部分,位于主机名之后请求查询之前</p>
+<p>　　<code>search:</code>URL 的“查询字符串”部分，包括开头的问号。</p>
+<p>　　<code>path: pathname</code>和 <code>search</code> 连在一起。</p>
+<p>　　<code>query:</code>查询字符串中的参数部分（问号后面部分字符串），或者使用 <code>querystring.parse()</code> 解析后返回的对象。</p>
+<p>　　<code>hash:</code>URL 的 “#” 后面部分（包括 # 符号）</p>
+<p>　补充<code>api：&quot;url.format(urlObj)&quot;</code></p>
+<p>　　作用：输入一个 URL 对象，返回格式化后的 URL 字符串。</p>
+<a id="more"></a>
+<p>（2），”QueryString模块”</p>
+<p>　　“QueryString” 模块用于实现URL参数字符串与参数对象的互相转换，来个栗子，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</div><div class="line"><span class="keyword">var</span> queryUrl = <span class="string">"http://localhost:8888/bb?name=bigbear&amp;memo=helloworld"</span> ;</div><div class="line">queryUrl = url.parse(queryUrl).query ;</div><div class="line"><span class="built_in">console</span>.log(queryUrl) ;</div><div class="line"><span class="built_in">console</span>.log(qs.parse(queryUrl))</div></pre></td></tr></table></figure>
+<p>　　运行结果·如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">　　　name=bigbear&amp;memo=helloworld</div><div class="line"> </div><div class="line">　　　　&#123;</div><div class="line"> </div><div class="line">　　　　　　<span class="attr">name</span>: <span class="string">'bigbear'</span>,</div><div class="line"> </div><div class="line">　　　　　　<span class="attr">memo</span>: <span class="string">'helloworld'</span></div><div class="line"> </div><div class="line">　　　　&#125;</div></pre></td></tr></table></figure></p>
+<p>　　补充api：</p>
+<p>　　<code>querystring.stringify(obj, [sep], [eq])</code>——序列化一个对象到一个 <code>query string</code>。</p>
+<p>　　可以选择是否覆盖默认的分割符（’&amp;’）和分配符（’=’）。　　　　　　　　　　　　</p>
+<p>　　querystring.stringify({foo: ‘bar’, baz: ‘qux’}, ‘;’, ‘:’)// 返回如下字串’foo:bar;baz:qux’</p>
+<p>　　querystring.parse(str, [sep], [eq], [options])——将一个 query string 反序列化为一个对象。可以选择是否覆盖默认的分割符（’&amp;’）和分配符（’=’）。<br>　　options对象可能包含maxKeys属性(默认为1000),它可以用来限制处理过的键(key)的数量.设为0可以去除键(key)的数量限制.<br>　　示例：querystring.parse(‘foo=bar&amp;baz=qux&amp;baz=quux&amp;corge’) // { foo: ‘bar’, baz: [‘qux’, ‘quux’], corge: ‘’ }</p>
+<p>（3），”Path模块”</p>
+<p>　　本模块包含一套用于处理和转换文件路径的工具集。几乎所有的方法仅对字符串进行转换， 文件系统是不会检查路径是否真实有效的。</p>
+<p>　　先来一个简单的栗子：　　　　<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="number">2</span> <span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</div><div class="line"><span class="number">3</span> <span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>) ;</div><div class="line"><span class="number">4</span> <span class="keyword">var</span> queryUrl = <span class="string">"http://localhost:8888/bb?name=bigbear&amp;memo=helloworld"</span> ;</div><div class="line"><span class="number">5</span> <span class="keyword">var</span> root = path.basename(queryUrl) ;</div><div class="line"><span class="number">6</span> <span class="built_in">console</span>.log(root) ; <span class="comment">// bb?name=bigbear&amp;memo=helloworld</span></div><div class="line">　　返回路径中的最后一部分，以”/“分割。</div><div class="line"> </div><div class="line">复制代码</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>) ;</div><div class="line"><span class="keyword">var</span> queryUrl = <span class="string">"http://localhost:8888/bb?name=bigbear&amp;memo=helloworld"</span> ;</div><div class="line"><span class="keyword">var</span> root = path.basename(queryUrl) ;</div><div class="line"><span class="built_in">console</span>.log(root) ; <span class="comment">// bb?name=bigbear&amp;memo=helloworld</span></div><div class="line"><span class="keyword">var</span> ext = path.extname(root) ;</div><div class="line"><span class="built_in">console</span>.log(ext || <span class="string">"Not Ext Name !"</span>) ; <span class="comment">// Not Ext Name !</span></div></pre></td></tr></table></figure></p>
+<p>复制代码<br>　　由于api过多，以上只列出来了常用的几个，大家需认真阅读文档。</p>
+<p>二，综合栗子</p>
+<p>场景描述——服务器接到不同情况的请求，通过 “Url” 分别做不同处理，代码如下：</p>
+<p>　　（1），建立”index.html“　　</p>
+<p>复制代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Bigbear<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"IE=8"</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">            div &#123;</div><div class="line">                margin-top: 50px;</div><div class="line">                width: 100%; </div><div class="line">                margin: 0px;</div><div class="line">                height:120px;</div><div class="line">                line-height:120px;</div><div class="line">                color:#fff;</div><div class="line">                font-size:22px;</div><div class="line">                background:#ff9900;</div><div class="line">                text-align: center;</div><div class="line">            &#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello,word！<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>复制代码<br>　　（2），建立”index.js“</p>
+<p><code>alert(&quot;Hello bb !&quot;)</code> ; // 为了测试就这么一句代码<br>　　（3），建立”server.js“</p>
+<p>复制代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>) ;</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> method = request.method ;</div><div class="line">    method = method.toLowerCase() ;</div><div class="line">    <span class="keyword">var</span> fileName = path.basename(request.url) ;</div><div class="line">    <span class="keyword">var</span> extName = path.extname(fileName) ;</div><div class="line">    <span class="keyword">var</span> root = <span class="string">"./"</span> ;</div><div class="line">    <span class="keyword">if</span>(<span class="string">"get"</span> == method)&#123;</div><div class="line">        <span class="keyword">if</span>(extName)&#123;</div><div class="line">            fs.readFile(<span class="string">"./"</span> + fileName,<span class="string">"utf-8"</span>,<span class="function"><span class="keyword">function</span> (<span class="params">error,data</span>)</span>&#123;</div><div class="line">                <span class="keyword">if</span>(error)<span class="keyword">throw</span> error ;</div><div class="line">                response.writeHead(<span class="number">200</span>,&#123;</div><div class="line">                    <span class="string">"Content-Type"</span>: &#123;</div><div class="line">                         <span class="string">".css"</span>: <span class="string">"text/css"</span> ,</div><div class="line">                         <span class="string">".js"</span> : <span class="string">"application/javascript"</span></div><div class="line">                  &#125;[extName]</div><div class="line">                &#125;) ;</div><div class="line">                response.write(data) ;</div><div class="line">                response.end() ;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            fs.readFile(root + <span class="string">"index.html"</span>,<span class="string">"utf-8"</span>,<span class="function"><span class="keyword">function</span> (<span class="params">error,data</span>)</span>&#123;</div><div class="line">                <span class="keyword">if</span>(error)<span class="keyword">throw</span> error ;</div><div class="line">                response.writeHead(<span class="number">200</span>,&#123;</div><div class="line">                    <span class="string">"Content-Type"</span> : <span class="string">"text/html"</span></div><div class="line">                &#125;);</div><div class="line">                response.write(data) ;</div><div class="line">                response.end() ;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"post"</span> == request.url)&#123;</div><div class="line">        <span class="comment">// handle post here</span></div><div class="line">    &#125;</div><div class="line">&#125;).listen(<span class="number">8888</span>) ;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Web Server Running , Port On ---&gt; 8888"</span>) ;</div></pre></td></tr></table></figure></p>
+<p>　　node server.js 运行一下。</p>
+<p>三，总结一下</p>
+<p>（1），理解上述三个模块之间的联系，灵活使用 。</p>
+<p>（2），熟练使用 “Url，QueryString，Path” 三个模块相关的api。</p>
+<p>（3），最后强调：理解上面例子中的代码意图，不断重构，不断总结。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nodejs/" rel="tag">#nodejs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/08/js&jquery 实时监听输入框值变化/" rel="next" title="js&jquery 实时监听输入框值变化">
+                <i class="fa fa-chevron-left"></i> js&jquery 实时监听输入框值变化
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/24/js执行上下文/" rel="prev" title="js执行上下文">
+                js执行上下文 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/cpc.png"
+               alt="崔鹏程" />
+          <p class="site-author-name" itemprop="name">崔鹏程</p>
+          <p class="site-description motion-element" itemprop="description">满招损，谦受益</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.github.com/tccpc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2285434181" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:648593412@qq.com" target="_blank" title="mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/cui-peng-cheng-53-20" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-comment"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">崔鹏程</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="#">Tccpc</a>
+</div>
+
+<div class="theme-info">
+  人生贵知心，定交无暮早 -
+  <a class="theme-link" href="#">
+    648593412
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -68,12 +68,10 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="jquery javascript," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="TCCPC'S BLOG" type="application/atom+xml" />
@@ -88,19 +86,24 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="1.jQuery：只需要同时绑定 oninput 和 onpropertychange 两个事件就可以了，示例代码：
+123$(&apos;#username&apos;).on(&apos;input propertychange&apos;, function() &amp;#123;    //业务处理代码&amp;#125;);
+2.对于JS原生写法而言， oninput 是 HTML5 的标准事件，对于检测 textarea, input:t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://tccpc.xyz/2016/11/01/hello-world/index.html">
+<meta property="og:title" content="js&jquery 实时监听输入框值变化">
+<meta property="og:url" content="http://tccpc.xyz/2015/03/08/js&jquery 实时监听输入框值变化/index.html">
 <meta property="og:site_name" content="TCCPC'S BLOG">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-11-01T14:53:53.569Z">
+<meta property="og:description" content="1.jQuery：只需要同时绑定 oninput 和 onpropertychange 两个事件就可以了，示例代码：
+123$(&apos;#username&apos;).on(&apos;input propertychange&apos;, function() &amp;#123;    //业务处理代码&amp;#125;);
+2.对于JS原生写法而言， oninput 是 HTML5 的标准事件，对于检测 textarea, input:t">
+<meta property="og:image" content="http://i.imgur.com/MybizH8.png">
+<meta property="og:updated_time" content="2016-09-18T11:58:18.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="js&jquery 实时监听输入框值变化">
+<meta name="twitter:description" content="1.jQuery：只需要同时绑定 oninput 和 onpropertychange 两个事件就可以了，示例代码：
+123$(&apos;#username&apos;).on(&apos;input propertychange&apos;, function() &amp;#123;    //业务处理代码&amp;#125;);
+2.对于JS原生写法而言， oninput 是 HTML5 的标准事件，对于检测 textarea, input:t">
+<meta name="twitter:image" content="http://i.imgur.com/MybizH8.png">
 
 
 
@@ -121,9 +124,9 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://tccpc.xyz/2016/11/01/hello-world/"/>
+  <link rel="canonical" href="http://tccpc.xyz/2015/03/08/js&jquery 实时监听输入框值变化/"/>
 
-  <title> Hello World | TCCPC'S BLOG </title>
+  <title> js&jquery 实时监听输入框值变化 | TCCPC'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -243,7 +246,7 @@ Quick">
             
             
               
-                Hello World
+                js&jquery 实时监听输入框值变化
               
             
           </h1>
@@ -255,11 +258,30 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T22:49:53+08:00" content="2016-11-01">
-              2016-11-01
+            <time itemprop="dateCreated" datetime="2015-03-08T13:14:22+08:00" content="2015-03-08">
+              2015-03-08
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -283,15 +305,12 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>1.<a href="http://tccpc.github.io" title="tccpc&#39;s blog" target="_blank" rel="external">jQuery</a>：只需要同时绑定 oninput 和 onpropertychange 两个事件就可以了，示例代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#username'</span>).on(<span class="string">'input propertychange'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//业务处理代码</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>2.对于JS原生写法而言， oninput 是 <a href="http://tccpc.github.io" title="tccpc&#39;s blog" target="_blank" rel="external">HTML5</a> 的标准事件，对于检测 textarea, input:text, input:password 和 input:search 这几个元素通过用户界面发生的内容变化非常有用，在内容修改后立即被触发，不像 onchange 事件需要失去焦点才触发。oninput 事件在主流浏览器的兼容情况如下：<br><img src="http://i.imgur.com/MybizH8.png" alt="http://www.runoob.com/jsref/event-oninput.html"></p>
+<p>从上面表格可以看出，<a href="http://tccpc.github.io" title="tccpc&#39;s blog" target="_blank" rel="external">oninput</a> 事件在 IE9 以下版本不支持，需要使用 IE 特有的 <a href="http://tccpc.github.io" title="tccpc&#39;s blog" target="_blank" rel="external">onpropertychange</a> 事件替代，这个事件在用户界面改变或者使用脚本直接修改内容两种情况下都会触发，有以下几种情况：</p>
+<p>修改了 input:checkbox 或者 input:radio 元素的选择中状态， checked 属性发生变化。<br>修改了 input:text 或者 textarea 元素的值，value 属性发生变化。<br>修改了 select 元素的选中项，selectedIndex 属性发生变化。<br>　　在监听到 onpropertychange 事件后，可以使用 event 的 propertyName 属性来获取发生变化的属性名称。</p>
+<p>　　集合 oninput &amp; onpropertychange 监听输入框内容变化的示例代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="comment">// Firefox, Google Chrome, Opera, Safari, Internet Explorer from version 9</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">OnInput</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">            alert (<span class="string">"The new content: "</span> + event.target.value);</div><div class="line">        &#125;</div><div class="line">    <span class="comment">// Internet Explorer</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">OnPropChanged</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (event.propertyName.toLowerCase () == <span class="string">"value"</span>) &#123;</div><div class="line">                alert (<span class="string">"The new content: "</span> + event.srcElement.value);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    Please modify the contents of the text field.</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">oninput</span>=<span class="string">"OnInput (event)"</span> <span class="attr">onpropertychange</span>=<span class="string">"OnPropChanged (event)"</span></span></div><div class="line">     <span class="attr">value</span>=<span class="string">"Text field"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -312,18 +331,28 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/jquery-javascript/" rel="tag">#jquery javascript</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/11/planeWars/" rel="next" title="planeWars 原生js写的飞机大战游戏">
-                <i class="fa fa-chevron-left"></i> planeWars 原生js写的飞机大战游戏
+              <a href="/2014/12/25/js-运动/" rel="next" title="原生js运动相关（一）">
+                <i class="fa fa-chevron-left"></i> 原生js运动相关（一）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/17/nodejs/" rel="prev" title="Nodejs ------ Url，QueryString，Path">
+                Nodejs ------ Url，QueryString，Path <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -482,7 +511,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>

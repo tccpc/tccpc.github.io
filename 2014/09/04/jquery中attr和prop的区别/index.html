@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="jquery," />
 
 
 
@@ -86,15 +86,34 @@
 
 
 
-<meta name="description" content="满招损，谦受益">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TCCPC'S BLOG">
-<meta property="og:url" content="http://tccpc.xyz/archives/index.html">
+<meta name="description" content="今天做个购物车遇到了一个小小的问题
+1console.log($(&apos;#all&apos;).attr(&apos;checked&apos;))
+居然提示undefied
+查了资料后 才发现 需要改为
+1console.log($(&apos;#all&apos;).prop(&apos;checked&apos;))
+那么问题来，什么时候该用prop？什么时候用attr？它们两个之间有什么区别？
+关于它们两个的区别，网上的答案很多。这里谈谈我的心得，我的心得很简单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery中attr和prop的区别">
+<meta property="og:url" content="http://tccpc.xyz/2014/09/04/jquery中attr和prop的区别/index.html">
 <meta property="og:site_name" content="TCCPC'S BLOG">
-<meta property="og:description" content="满招损，谦受益">
+<meta property="og:description" content="今天做个购物车遇到了一个小小的问题
+1console.log($(&apos;#all&apos;).attr(&apos;checked&apos;))
+居然提示undefied
+查了资料后 才发现 需要改为
+1console.log($(&apos;#all&apos;).prop(&apos;checked&apos;))
+那么问题来，什么时候该用prop？什么时候用attr？它们两个之间有什么区别？
+关于它们两个的区别，网上的答案很多。这里谈谈我的心得，我的心得很简单">
+<meta property="og:updated_time" content="2016-09-15T11:07:30.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCCPC'S BLOG">
-<meta name="twitter:description" content="满招损，谦受益">
+<meta name="twitter:title" content="jquery中attr和prop的区别">
+<meta name="twitter:description" content="今天做个购物车遇到了一个小小的问题
+1console.log($(&apos;#all&apos;).attr(&apos;checked&apos;))
+居然提示undefied
+查了资料后 才发现 需要改为
+1console.log($(&apos;#all&apos;).prop(&apos;checked&apos;))
+那么问题来，什么时候该用prop？什么时候用attr？它们两个之间有什么区别？
+关于它们两个的区别，网上的答案很多。这里谈谈我的心得，我的心得很简单">
 
 
 
@@ -115,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://tccpc.xyz/archives/"/>
+  <link rel="canonical" href="http://tccpc.xyz/2014/09/04/jquery中attr和prop的区别/"/>
 
-  <title> Archive | TCCPC'S BLOG </title>
+  <title> jquery中attr和prop的区别 | TCCPC'S BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -138,7 +157,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,372 +235,154 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 9 posts in total. Keep on posting.
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/01/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-01T22:49:53+08:00"
-              content="2016-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/11/planeWars/" itemprop="url">
-              
-                <span itemprop="name">planeWars 原生js写的飞机大战游戏</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-11T22:28:29+08:00"
-              content="2016-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/11/store-gem.js/" itemprop="url">
-              
-                <span itemprop="name">本地存储localstorage/sessionstorage的封装,cookie完美解决方案</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-11T22:28:29+08:00"
-              content="2016-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/12/26/js作用域链/" itemprop="url">
-              
-                <span itemprop="name">js作用域链</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-12-26T01:44:26+08:00"
-              content="2015-12-26" >
-          12-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/12/24/js执行上下文/" itemprop="url">
-              
-                <span itemprop="name">js执行上下文</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-12-24T09:24:26+08:00"
-              content="2015-12-24" >
-          12-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/08/17/nodejs/" itemprop="url">
-              
-                <span itemprop="name">Nodejs ------ Url，QueryString，Path</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-08-17T22:28:29+08:00"
-              content="2015-08-17" >
-          08-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/03/08/js&jquery 实时监听输入框值变化/" itemprop="url">
-              
-                <span itemprop="name">js&jquery 实时监听输入框值变化</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-03-08T13:14:22+08:00"
-              content="2015-03-08" >
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2014">2014</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2014/12/25/js-运动/" itemprop="url">
-              
-                <span itemprop="name">原生js运动相关（一）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2014-12-25T20:53:58+08:00"
-              content="2014-12-25" >
-          12-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2014/09/04/jquery中attr和prop的区别/" itemprop="url">
-              
-                <span itemprop="name">jquery中attr和prop的区别</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2014-09-04T19:24:21+08:00"
-              content="2014-09-04" >
-          09-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jquery中attr和prop的区别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-09-04T19:24:21+08:00" content="2014-09-04">
+              2014-09-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天做个购物车遇到了一个小小的问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log($(<span class="string">'#all'</span>).attr(<span class="string">'checked'</span>))</div></pre></td></tr></table></figure>
+<p>居然提示<code>undefied</code></p>
+<p>查了资料后 才发现 需要改为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log($(<span class="string">'#all'</span>).prop(<span class="string">'checked'</span>))</div></pre></td></tr></table></figure>
+<p>那么问题来，什么时候该用prop？什么时候用attr？它们两个之间有什么区别？</p>
+<p>关于它们两个的区别，网上的答案很多。这里谈谈我的心得，我的心得很简单：</p>
+<p>对于HTML元素本身就带有的固有属性，在处理时，使用prop方法。<br>对于HTML元素我们自己自定义的DOM属性，在处理时，使用attr方法。</p>
+<p>举个小栗子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"chk1"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">index</span>=<span class="string">"1"</span> /&gt;</span>是否可见</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"chk2"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>=<span class="string">"checked"</span> <span class="attr">index</span>=<span class="string">"2"</span>/&gt;</span>是否可见</div></pre></td></tr></table></figure></p>
+<p>像checkbox，radio和select这样的元素，选中属性对应“checked”和“selected”，这些也属于固有属性，因此需要使用prop方法去操作才能获得正确的结果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#chk1"</span>).prop(<span class="string">"checked"</span>) == <span class="literal">false</span></div><div class="line">$(<span class="string">"#chk2"</span>).prop(<span class="string">"checked"</span>) == <span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>如果上面使用attr方法，则会出现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#chk1"</span>).attr(<span class="string">"checked"</span>) == <span class="literal">undefined</span></div><div class="line">$(<span class="string">"#chk2"</span>).attr(<span class="string">"checked"</span>) == <span class="string">"checked"</span></div></pre></td></tr></table></figure>
+<p>而栗子中的<code>index</code>属性是我们自己自定义上去的,<code>&lt;input&gt;</code>元素本身是没有这个属性的。这种就是自定义的DOM属性。处理这些属性时，建议使用attr方法。使用prop方法取值和设置属性值时，都会返回undefined值。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jquery/" rel="tag">#jquery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/25/js-运动/" rel="prev" title="原生js运动相关（一）">
+                原生js运动相关（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -589,6 +390,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -608,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/cpc.png"
@@ -704,6 +518,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -807,11 +632,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
